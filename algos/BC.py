@@ -495,7 +495,7 @@ def test(config: TrainConfig, logger: Logger):
         logger.record(k, v)
     logger.dump(0)
 
-    score = eval_log[f"eval/{config.target_returns[0]}_normalized_score_mean"]
+    score = eval_log[f"eval/normalized_score_mean"]
     eval_atta_tag = "eval_attack" if config.eval_attack else "eval_clean"
     # train_time = config.checkpoint_dir.split("_")[-2]
     log_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(logger.get_dir()))), f"test_{config.group}_{config.corruption_mode}_{eval_atta_tag}_{config.test_time}.txt")
