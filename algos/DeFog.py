@@ -892,7 +892,7 @@ def test(config: TrainConfig, logger: Logger):
     log_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(logger.get_dir()))), f"test_{config.group}_{config.corruption_mode}_{eval_atta_tag}_{config.test_time}.txt")
     title = f"{config.group}_{config.env}_{config.corruption_mode}_{config.corruption_tag}_{eval_atta_tag}_{config.seed}"
     with open(log_path, "a") as f:
-        f.write(f"{title}: {score:.2f}\n")
+        f.write(f"{title}: {score:.4f}\n")
 
 
 @pyrallis.wrap()

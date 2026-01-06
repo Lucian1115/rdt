@@ -43,7 +43,7 @@ class TrainConfig:
     # Experiment
     eval_episodes: int = 10
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
-    num_epochs: int = 1000
+    num_epochs: int = 100
     num_updates_on_epoch: int = 1000
     max_timesteps: int = int(1e6)  # Max time steps to run environment
     checkpoints_path: Optional[str] = None  # Save path
@@ -501,7 +501,7 @@ def test(config: TrainConfig, logger: Logger):
     log_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(logger.get_dir()))), f"test_{config.group}_{config.corruption_mode}_{eval_atta_tag}_{config.test_time}.txt")
     title = f"{config.group}_{config.env}_{config.corruption_mode}_{config.corruption_tag}_{eval_atta_tag}_{config.seed}"
     with open(log_path, "a") as f:
-        f.write(f"{title}: {score:.2f}\n")
+        f.write(f"{title}: {score:.4f}\n")
 
 
 @pyrallis.wrap()
